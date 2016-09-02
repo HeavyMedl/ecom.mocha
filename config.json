@@ -1,0 +1,136 @@
+{
+	"environments" :  [
+		{ 
+			"name" : "DEV", 
+			"domain":"http://wcs.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT1w", 
+			"domain":"http://stgbrowse[region].vdevint1.costco.[suffix]"
+		},
+		{ 
+			"name" : "DIT1", 
+			"domain":"http://www-vdevint1.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT2w", 
+			"domain":"http://stgbrowse[region].vdevint2.costco.[suffix]"
+		},
+		{ 
+			"name" : "DIT2", 
+			"domain":"http://www-vdevint2.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT3w", 
+			"domain":"http://stgbrowse[region].vdevint3.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT3", 
+			"domain":"http://www-vdevint3.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT4w", 
+			"domain":"http://stgbrowse[region].vdevint4.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT4", 
+			"domain":"http://www-vdevint4.costco.[suffix]"
+		},
+		{ 
+			"name" : "DIT5w", 
+			"domain":"http://stgbrowse[region].vdevint5.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT5", 
+			"domain":"http://www-vdevint5.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT6w", 
+			"domain":"http://stgbrowse[region].vdevint6.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT6", 
+			"domain":"http://www-vdevint6.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT7w", 
+			"domain":"http://stgbrowse[region].vdevint7.costco.[suffix]" 
+		},
+		{ 
+			"name" : "DIT7", 
+			"domain":"http://www-vdevint7.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA1w", 
+			"domain":"http://stgbrowse[region].vqa1.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA1", 
+			"domain":"http://www-vqa1.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA2w", 
+			"domain":"http://stgbrowse[region].vqa2.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA2", 
+			"domain":"http://www-vqa2.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA3w", 
+			"domain":"http://stgbrowse[region].vqa3.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA3", 
+			"domain":"http://www-vqa3.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA4w", 
+			"domain":"http://stgbrowse[region].vqa4.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA4", 
+			"domain":"http://www-vqa4.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA5w", 
+			"domain":"http://stgbrowse[region].vqa5.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA5", 
+			"domain":"http://www-vqa5.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA6w", 
+			"domain":"http://stgbrowse[region].vqa6.costco.[suffix]" 
+		},
+		{ 
+			"name" : "QA6", 
+			"domain":"http://www-vqa6.costco.[suffix]" 
+		},
+		{ 
+			"name" : "UAT1w", 
+			"domain":"http://stgbrowse[region].vuat1.costco.[suffix]" 
+		},
+		{ 
+			"name" : "UAT1", 
+			"domain":"http://www-vuat1.costco.[suffix]" 
+		},
+		{ 
+			"name" : "UAT2w", 
+			"domain":"http://stgbrowse[region].vuat2.costco.[suffix]" 
+		},
+		{ 
+			"name" : "UAT2", 
+			"domain":"http://www-vuat2.costco.[suffix]" 
+		},
+		{ 
+			"name" : "PRODw", 
+			"domain":"http://stgbrowse[region].web.costco.[suffix]" 
+		},
+		{ 
+			"name" : "PROD", 
+			"domain":"http://www.costco.[suffix]" 
+		}
+	]
+}
