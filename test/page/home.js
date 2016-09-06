@@ -10,7 +10,7 @@ let webdriver = require('selenium-webdriver'),
  * Page level suite. Correlates with home page for the given
  * environment.
  */
-util.get_environments_by_region('com').forEach((env_obj, i) => {
+util.get_environments('com', ['PROD']).forEach((env_obj, i) => {
    describe('Home Page Suite | Environment: '+env_obj.name, function() {
         this.timeout(timeout);
         /**
