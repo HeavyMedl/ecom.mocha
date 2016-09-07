@@ -3,15 +3,16 @@ let webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     expect = require('chai').expect,
     timeout = 15000,
-    driver = undefined;
+    environments = util.get_environments('com', ['PROD']);
+        // .concat(util.get_environments('ca', ['PROD']))
 /**
  * Home.js
  * 
  * Page level suite. Correlates with home page for the given
  * environment.
  */
-util.get_environments('com', ['PROD']).forEach((env_obj, i) => {
-   describe('Home Page Suite | Environment: '+env_obj.name, function() {
+environments.forEach((env_obj, i) => {
+   describe(`Home Page Suite | ${env_obj.name} | ${env_obj.domain}`, function() {
         this.timeout(timeout);
         /**
          * Before each test, intialize a new webdriver,
@@ -19,46 +20,38 @@ util.get_environments('com', ['PROD']).forEach((env_obj, i) => {
          * drivers) and open the home page.
          */
         beforeEach(function(done) {
-            driver = new webdriver.Builder().
-                withCapabilities(webdriver.Capabilities.chrome()).build();
-            driver.get(env_obj.domain)
+            this.driver = new webdriver.Builder()
+                .withCapabilities(webdriver.Capabilities.chrome())
+                .build();
+            this.driver.get(env_obj.domain)
                 .then(done)
                 .catch(error => done(error))
         });
-
         /**
          * After each test, close the webdriver to ensure we have
          * a fresh driver for each test.
          */
         afterEach(function(done) {
-            driver.quit()
+            this.driver.quit()
                 .then(done)
                 .catch(error => done(error));
         });
 
-
-        it('Should be on the home page', function(done) {
-            // var element = driver.findElement(By.tagName('body'));
-
-            // element.getAttribute('id').then(id => {
-            //     expect(id).to.equal('home');
-            //     done();
-            // });
-            done();
+        it('Header: "View Warehouse Coupons" hyperlink should resolve to warehouse-coupon-offers.html', function(done) {
+            this.driver.findElement(By.id('warehouse-coupons')).click();
+            this.driver.getCurrentUrl()
+                .then(url => {
+                    expect(url).to.contain('warehouse-coupon-offers.html');
+                    done();
+                })
         });
-
-        
-        it('Has a working nav', function(done) {
-            // var element = driver.findElement(By.linkText('REVIEW'));
-
-            // element.click();
-
-            // driver.getCurrentUrl()
-            //     .then(function(value) {
-            //         expect(value).to.contain('/review');
-            //         done();
-            //     });
-            done();
+        it('Header: "Customer Service" hyperlink should resolve to customerservice.costco.com', function(done) {
+            this.driver.findElement(By.id('customer-service-link')).click();
+            this.driver.getCurrentUrl()
+                .then(url => {
+                    expect(url).to.contain('customerservice.costco.com');
+                    done();
+                })
         });
     });
 });

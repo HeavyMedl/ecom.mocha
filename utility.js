@@ -13,10 +13,12 @@ let self = module.exports = {
 	 */
 	get_environments : function(region, env_arr) {
 		let environments = config.environments,
-			return_envs = env_arr ? [] : environments;
+			return_envs = [];
 		try {
-			for (var i = environments.length - 1; i >= 0; i--) {
-				if (env_arr && env_arr.indexOf(environments[i].name) == -1) {
+			for (var i = 0, len = environments.length; i < len; i++) {
+				if (typeof env_arr !== "undefined" // subset of config.environments
+					&& env_arr.length > 0 
+					&& env_arr.indexOf(environments[i].name) == -1) {
 					continue;
 				}
 				if (region == 'ca') {
