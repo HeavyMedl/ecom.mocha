@@ -1,9 +1,8 @@
-let webdriver = require('selenium-webdriver'),
-    util = require('../../utility.js'),
-    By = webdriver.By,
-    expect = require('chai').expect,
-    timeout = 15000,
-    environments = util.get_environments('com', ['PROD']);
+const util = require('../../utility');
+const webdriver = require('selenium-webdriver');
+const expect = require('chai').expect;
+const timeout = 25000;
+const environments = util.get_environments('com', ['DEV','PROD']);
         // .concat(util.get_environments('ca', ['PROD']))
 /**
  * Home.js
@@ -37,21 +36,7 @@ environments.forEach((env_obj, i) => {
                 .catch(error => done(error));
         });
 
-        it('Header: "View Warehouse Coupons" hyperlink should resolve to warehouse-coupon-offers.html', function(done) {
-            this.driver.findElement(By.id('warehouse-coupons')).click();
-            this.driver.getCurrentUrl()
-                .then(url => {
-                    expect(url).to.contain('warehouse-coupon-offers.html');
-                    done();
-                })
-        });
-        it('Header: "Customer Service" hyperlink should resolve to customerservice.costco.com', function(done) {
-            this.driver.findElement(By.id('customer-service-link')).click();
-            this.driver.getCurrentUrl()
-                .then(url => {
-                    expect(url).to.contain('customerservice.costco.com');
-                    done();
-                })
-        });
+        // Header component tests
+        util.import('test/components/header.js');
     });
 });

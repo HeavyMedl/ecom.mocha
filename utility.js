@@ -1,4 +1,5 @@
-let config = JSON.parse(require('fs').readFileSync('config.json'));
+const fs = require('fs');
+const config = JSON.parse(fs.readFileSync('config.json'));
 
 let self = module.exports = {
 	/**
@@ -47,5 +48,7 @@ let self = module.exports = {
 		} catch (error) { console.error(error) }
 		return domain;
 	},
-
+	import : function(path) {
+		eval(fs.readFileSync(path, 'utf8'));
+	}
 }
